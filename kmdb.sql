@@ -109,20 +109,72 @@
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
--- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
-
 -- The SQL statement for the movies output
 -- TODO!
 
--- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
 
 
 -- The SQL statement for the cast output
 -- TODO!
+
+DROP TABLE IF EXISTS
+
+.mode column 
+
+.headers on
+
+.print ""
+.print "TOP CAST"
+.print "========"
+.print ""
+
+CREATE TABLE movies (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+tite TEXT,
+year INTEGER,
+MPAA_rating TEXT,
+studio TEXT,
+);
+
+CREATE TABLE cast (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+tite TEXT,
+name TEXT,
+character TEXT,
+);
+
+INSERT INTO movies (
+    "title",
+    "year",
+    "MPAA_rating",
+    "studio"
+) VALUES (
+    "Batman Begins",
+    2005,
+    "PG-13",
+    "Warner Bros."
+);
+
+INSERT INTO movies (
+    "title",
+    "year",
+    "MPAA_rating",
+    "studio"
+) VALUES (
+    "The Dark Knight",
+    2008,
+    "PG-13",
+    "Warner Bros."
+);
+
+INSERT INTO movies (
+    "title",
+    "year",
+    "MPAA_rating",
+    "studio"
+) VALUES (
+    "The Dark Knight Rises",
+    2012,
+    "PG-13",
+    "Warner Bros."
+);
