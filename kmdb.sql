@@ -117,7 +117,9 @@
 -- The SQL statement for the cast output
 -- TODO!
 
-DROP TABLE IF EXISTS
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS cast;
+
 
 .mode column 
 
@@ -130,22 +132,22 @@ DROP TABLE IF EXISTS
 
 CREATE TABLE movies (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-tite TEXT,
-year INTEGER,
+movie_title TEXT,
+year_made INTEGER,
 MPAA_rating TEXT,
-studio TEXT,
+studio TEXT
 );
 
 CREATE TABLE cast (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-tite TEXT,
-name TEXT,
-character TEXT,
+title TEXT,
+cast_name TEXT,
+character_name TEXT
 );
 
 INSERT INTO movies (
-    "title",
-    "year",
+    "movie_title",
+    "year_made",
     "MPAA_rating",
     "studio"
 ) VALUES (
@@ -156,8 +158,8 @@ INSERT INTO movies (
 );
 
 INSERT INTO movies (
-    "title",
-    "year",
+    "movie_title",
+    "year_made",
     "MPAA_rating",
     "studio"
 ) VALUES (
@@ -168,8 +170,8 @@ INSERT INTO movies (
 );
 
 INSERT INTO movies (
-    "title",
-    "year",
+    "movie_title",
+    "year_made",
     "MPAA_rating",
     "studio"
 ) VALUES (
