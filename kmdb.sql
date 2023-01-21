@@ -126,7 +126,7 @@ DROP TABLE IF EXISTS cast;
 .headers on
 
 .print ""
-.print "TOP CAST"
+.print "MOVIES"
 .print "========"
 .print ""
 
@@ -137,6 +137,11 @@ year_made INTEGER,
 MPAA_rating TEXT,
 studio TEXT
 );
+
+.print ""
+.print "TOP CAST"
+.print "========"
+.print ""
 
 CREATE TABLE cast (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -180,3 +185,20 @@ INSERT INTO movies (
     "PG-13",
     "Warner Bros."
 );
+
+INSERT INTO cast (title, cast_name, character_name)
+SELECT 'Batman Begins', 'Christian Bale', 'Bruce Wayne' UNION
+SELECT 'Batman Begins', 'Michael Caine', 'Alfred' UNION
+SELECT 'Batman Begins', 'Liam Neeson', 'Ra''s Al Ghul' UNION
+SELECT 'Batman Begins', 'Katie Holmes', 'Rachel Dawes' UNION
+SELECT 'Batman Begins', 'Gary Oldman', 'Commissioner Gordon' UNION
+SELECT 'The Dark Knight', 'Christian Bale', 'Bruce Wayne' UNION
+SELECT 'The Dark Knight', 'Heath Ledger', 'Joker' UNION
+SELECT 'The Dark Knight', 'Aaron Eckhart', 'Harvey Dent' UNION
+SELECT 'The Dark Knight', 'Michael Caine', 'Alfred' UNION
+SELECT 'The Dark Knight', 'Maggie Gyllenhaal', 'Rachel Dawes' UNION
+SELECT 'The Dark Knight Rises', 'Christian Bale', 'Bruce Wayne' UNION
+SELECT 'The Dark Knight Rises', 'Gary Oldman', 'Commissioner Gordon' UNION
+SELECT 'The Dark Knight Rises', 'Tom Hardy', 'Bane' UNION
+SELECT 'The Dark Knight Rises', 'Joseph Gordon-Levitt', 'John Blake' UNION
+SELECT 'The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle';
