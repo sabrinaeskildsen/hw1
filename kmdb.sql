@@ -56,7 +56,8 @@ INSERT INTO movies (
 .print "========"
 .print ""
 
-SELECT movie_title, year_made, MPAA_rating, studio FROM movies;
+SELECT movie_title, year_made, MPAA_rating, studio FROM movies
+ORDER BY year_made;
 
 CREATE TABLE cast (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
