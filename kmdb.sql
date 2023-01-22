@@ -13,6 +13,8 @@ MPAA_rating TEXT,
 studio TEXT
 );
 
+.width 21 4 5 20;
+
 INSERT INTO movies (
     "movie_title",
     "year_made",
@@ -54,8 +56,7 @@ INSERT INTO movies (
 .print "========"
 .print ""
 
-SELECT * FROM movies;
-.width 2 21 4 5 20;
+SELECT movie_title, year_made, MPAA_rating, studio FROM movies;
 
 CREATE TABLE cast (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -63,6 +64,8 @@ title TEXT,
 cast_name TEXT,
 character_name TEXT
 );
+
+.width 21 30 30;
 
 INSERT INTO cast (title, cast_name, character_name)
 SELECT 'Batman Begins', 'Christian Bale', 'Bruce Wayne' UNION
@@ -87,5 +90,5 @@ SELECT 'The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle';
 .print "========"
 .print ""
 
-SELECT * FROM cast;
-.width 2 21 30 30
+SELECT title, cast_name, character_name FROM cast
+ORDER BY id;
