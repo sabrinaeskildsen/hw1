@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS cast;
+DROP TABLE IF EXISTS studios;
 
 .mode column 
 
@@ -9,8 +10,7 @@ CREATE TABLE movies (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
 movie_title TEXT,
 year_made INTEGER,
-MPAA_rating TEXT,
-studio TEXT
+MPAA_rating TEXT
 );
 
 .width 21 4 5 20;
@@ -18,47 +18,55 @@ studio TEXT
 INSERT INTO movies (
     "movie_title",
     "year_made",
-    "MPAA_rating",
-    "studio"
+    "MPAA_rating"
 ) VALUES (
     "Batman Begins",
     2005,
-    "PG-13",
-    "Warner Bros."
+    "PG-13"
 );
 
 INSERT INTO movies (
     "movie_title",
     "year_made",
-    "MPAA_rating",
-    "studio"
+    "MPAA_rating"
 ) VALUES (
     "The Dark Knight",
     2008,
-    "PG-13",
-    "Warner Bros."
+    "PG-13"
 );
 
 INSERT INTO movies (
     "movie_title",
     "year_made",
-    "MPAA_rating",
-    "studio"
+    "MPAA_rating"
 ) VALUES (
     "The Dark Knight Rises",
     2012,
-    "PG-13",
-    "Warner Bros."
+    "PG-13"
 );
+
+
+CREATE TABLE studios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    studio_name TEXT,
+    movie_title TEXT
+);
+
+INSERT INTO studios (studio_name, movie_title)
+SELECT 'Warner Bros.', 'Batman Begins' UNION
+SELECT 'Warner Bros.', 'The Dark Knight'UNION
+SELECT 'Warner Bros.', 'The Dark Knight Rises';
 
 .print ""
 .print "MOVIES"
 .print "========"
 .print ""
 
-SELECT movies.movie_title, movies.year_made, movies.MPAA_rating, movies.studio 
+SELECT  movies.movie_title, movies.year_made, movies.MPAA_rating, studios.studio_name
 FROM movies
+INNER JOIN studios on movies.movie_title = studios.movie_title
 ORDER BY year_made;
+
 
 CREATE TABLE cast (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -93,4 +101,5 @@ SELECT 'The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle';
 .print ""
 
 SELECT title, cast_name, character_name FROM cast
-INNER JOIN movies ON title = movie_title;
+INNER JOIN movies ON title = movie_title
+ORDER BY movie_title;
