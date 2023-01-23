@@ -3,7 +3,6 @@ DROP TABLE IF EXISTS cast;
 DROP TABLE IF EXISTS studios;
 
 .mode column 
-
 .headers off
 
 CREATE TABLE movies (
@@ -45,7 +44,6 @@ INSERT INTO movies (
     "PG-13"
 );
 
-
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     studio_name TEXT,
@@ -66,7 +64,6 @@ SELECT  movies.movie_title, movies.year_made, movies.MPAA_rating, studios.studio
 FROM movies
 INNER JOIN studios on movies.movie_title = studios.movie_title
 ORDER BY year_made;
-
 
 CREATE TABLE cast (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
