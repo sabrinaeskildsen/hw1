@@ -56,7 +56,8 @@ INSERT INTO movies (
 .print "========"
 .print ""
 
-SELECT movie_title, year_made, MPAA_rating, studio FROM movies
+SELECT movies.movie_title, movies.year_made, movies.MPAA_rating, movies.studio 
+FROM movies
 ORDER BY year_made;
 
 CREATE TABLE cast (
@@ -66,7 +67,7 @@ cast_name TEXT,
 character_name TEXT
 );
 
-.width 21 30 30;
+.width 25 22 30;
 
 INSERT INTO cast (title, cast_name, character_name)
 SELECT 'Batman Begins', 'Christian Bale', 'Bruce Wayne' UNION
@@ -92,4 +93,4 @@ SELECT 'The Dark Knight Rises', 'Anne Hathaway', 'Selina Kyle';
 .print ""
 
 SELECT title, cast_name, character_name FROM cast
-ORDER BY id;
+INNER JOIN movies ON title = movie_title;
